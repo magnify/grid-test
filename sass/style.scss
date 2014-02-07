@@ -55,21 +55,19 @@ body {
 
 
 @mixin create-box($pos-x,$pos-y, $width, $height) {
-  background-color: red;
-
   position: absolute;
+  top: $pos-x;
+  left: $pos-y;
 
-  border: 1px solid darken(#bad455, 15%);
   padding: 20px;
-
-  background-color: #bad455;
-  text-align: center;
-
   width: $width;
   height: $height;
 
-  top: $pos-x;
-  left: $pos-y;
+  background-color: #bad455;
+  border: 1px solid darken(#bad455, 15%);
+  text-align: center;
+
+  @include box-sizing(border-box);
 }
 
 .button-1 {
@@ -86,6 +84,19 @@ body {
 
 .button-4 {
   @include create-box(55%, 55%, 30%, 20%);
+}
+
+.button-floated {
+  float: left;
+
+  height: 7.45em;
+  width: 10%;
+
+  background-color: #bad455;
+  border: 1px solid darken(#bad455, 15%);
+  text-align: center;
+
+  @include box-sizing(border-box);
 }
 
 .categories {

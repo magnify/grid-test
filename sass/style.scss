@@ -1,0 +1,127 @@
+// Include compass
+@import "compass/css3";
+
+
+// Grid - http://zengrids.com
+@import "zen";
+
+$zen-column-count: 12; // Set the total number of columns in the grid.
+$zen-gutter-width: 0; // Set the gutter size. A half-gutter is used on each side of each column.
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;  
+
+  border: 5px solid darken(#bad455, 15%);
+
+  @include box-sizing(border-box);
+}
+
+%basic-element {
+  position: absolute;
+  overflow: hidden;
+
+  border: 1px solid darken(#bad455, 15%);
+  padding: 20px;
+
+  background-color: #bad455;
+  text-align: center;
+
+  @include box-sizing(border-box);
+}
+
+%basic-element-25 {
+  width: 25%;
+  height: 25%;
+}
+
+%basic-element-50 {
+  width: 50%;
+  height: 50%;
+}
+
+
+@mixin create-box($pos-x,$pos-y, $width, $height) {
+  background-color: red;
+
+  position: absolute;
+
+  border: 1px solid darken(#bad455, 15%);
+  padding: 20px;
+
+  background-color: #bad455;
+  text-align: center;
+
+  width: $width;
+  height: $height;
+
+  top: $pos-x;
+  left: $pos-y;
+}
+
+.button-1 {
+  @include create-box(5em, 5em, 5em, 5em);
+}
+
+.button-2 {
+  @include create-box(5em, 15em, 5em, 5em);
+}
+
+.button-3 {
+  @include create-box(5em, 25em, 5em, 5em);
+}
+
+.button-4 {
+  @include create-box(5em, 35em, 5em, 5em);
+}
+
+.button-5 {
+  @include create-box(5em, 45em, 5em, 5em);
+}
+
+.categories {
+  @extend %basic-element;
+  @extend %basic-element-50;
+
+  top: 0;
+}
+
+.products {
+  @extend %basic-element;
+  @extend %basic-element-50;
+
+
+  bottom: 0;
+
+  width: 50%;
+}
+
+.orders {
+  @extend %basic-element;
+  @extend %basic-element-50;
+
+
+  right: 0;
+  bottom: 0;
+}
+
+.logs {
+  @extend %basic-element;
+  @extend %basic-element-50;
+
+  right: 0;
+  top: 0;
+}
